@@ -1,0 +1,6 @@
+<h2>Deja tu Review</h2>
+  <%= form_for [@product, @review] do |f| %>
+   <%= f.label :content, "Review" %>
+   <%= f.text_area :content %>
+   <%= f.submit "Enviar" %>
+  <% end %>
