@@ -62,6 +62,18 @@ class ProductsController < ApplicationController
     end
   end
 
+  def darlike
+    @product= Product.find(params[:id])
+    @like = @product.likes.build(user:@current_user)
+    if @product.user_likes.include? current_user
+       @product.likes.where(user:current_user).first.delete
+       redirect_to @product, notice: "tu like ha sido borrado"
+    elsif @like.save
+       redirect_to @product, notice: "has dado like"
+    else
+       redirect_to @product, notice: "no has podido votar"
+    end
+  end
   private
 
     # Never trust parameters from the scary internet, only allow the white list through.
