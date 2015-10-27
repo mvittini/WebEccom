@@ -2,6 +2,10 @@
 
 <p>
   <strong>Name:</strong>
+  <%= image_tag(@product.picture, size:"256x256")  %>
+</p>
+<p>
+  <strong>Name:</strong>
   <%= @product.name %>
 </p>
 
@@ -20,13 +24,15 @@
   <%= @product.stock %>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Edit', edit_product_path(@product)if can? :update, Product%>
 <%= link_to 'Back', products_path %>
 
 <h2>Reviews de <%= @product.name %></h2>
 
 <%= render partial: "reviews/review", collection: @reviews  %>
 
+<% if can? :create, Review %>
 <div>
 	<%= render "reviews/form" %>
 </div>
+<% end %>

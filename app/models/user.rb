@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :review, dependent: :destroy
+  has_many :review, dependent: :destroy
   
   validates :name, presence: true
   validates :lastname, presence: true

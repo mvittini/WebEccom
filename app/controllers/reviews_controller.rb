@@ -9,6 +9,9 @@ class ReviewsController < ApplicationController
   		redirect_to @product, notice: "el comentario no fue ingresado"
   	end
   end
+
+  end
+
   def reviews_params
   	params.require(:review).permit(:content)
   end
