@@ -8,6 +8,15 @@
 User.destroy_all
 Product.destroy_all
 Review.destroy_all
+Category.destroy_all
+
+categories=[]
+
+(1..15).each do |m|
+  categories << Category.create(
+    name: Faker::Commerce.department(1)
+    )
+end
 
 users = []
 
@@ -43,7 +52,8 @@ products = []
     name: Faker::Commerce.product_name,
     description: Faker::Lorem.paragraph(2, true, 10),
     price: Faker::Number.between(100, 100000),
-    stock: Faker::Number.between(1, 99)
+    stock: Faker::Number.between(1, 99),
+    category: categories[rand(categories.length)]
   )
 end
 

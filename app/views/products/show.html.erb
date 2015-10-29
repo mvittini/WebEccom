@@ -33,9 +33,18 @@
 <%= link_to 'Edit', edit_product_path(@product)if can? :update, Product%>
 <%= link_to 'Back', products_path %>
 
+
+
 <h2>Reviews de <%= @product.name %></h2>
 
-<%= render partial: "reviews/review", collection: @reviews  %>
+<% @reviews.each do |review| %>
+  <hr>
+  <p><small><%= review.created_at %></small></p>
+  <p><%= review.content %></p>
+  <p><%= review.user.username  %></p>
+  <hr>
+<% end %>
+
 
 <% if can? :create, Review %>
 <div>
