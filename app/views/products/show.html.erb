@@ -2,7 +2,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= image_tag(@product.picture, size:"256x256")  %>
+  <%= image_tag(@product.picture, size:"100x100")  %>
 </p>
 <p>
   <strong>Name:</strong>
@@ -12,6 +12,10 @@
 <p>
   <strong>Description:</strong>
   <%= @product.description %>
+</p>
+<p>
+  <strong>Category:</strong>
+  <%= @product.category %>
 </p>
 
 <p>
